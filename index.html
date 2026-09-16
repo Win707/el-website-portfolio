@@ -94,12 +94,43 @@
         <div class="container">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Projects / 01—03</p>
+              <p class="eyebrow">Projects / 01—04</p>
               <h2>A few things I’ve made.</h2>
             </div>
             <p>Small AI automation experiments, documented honestly as I learn.</p>
           </div>
           <div class="project-grid">
+          <article class="project-card">
+            <div class="project-copy">
+              <p class="project-type">Automation agent</p>
+              <h3>Lead qualification &amp; booking</h3>
+              <p class="project-result">Scores inbound leads by budget and gets qualified ones booked on a call automatically.</p>
+            </div>
+            <div class="project-media">
+              <video autoplay muted loop playsinline preload="none" poster="assets/projects/lead-qualification-poster.jpg" data-video-src="assets/projects/lead-qualification.mp4" aria-label="Lead qualification and booking automation demo"></video>
+              <div class="media-status">Demo video coming soon</div>
+            </div>
+            <div class="project-details">
+              <div class="tech-tags">
+                <span>Airtable</span>
+                <span>Gmail</span>
+                <span>Slack</span>
+                <span>Calendly</span>
+              </div>
+              <details>
+                <summary>How it works</summary>
+                <div class="flow-diagram">
+                  <span>Form submitted</span>
+                  <b>→</b>
+                  <span>Qualify by budget</span>
+                  <b>→</b>
+                  <span>Email + Slack alert</span>
+                  <b>→</b>
+                  <span>Booked &amp; logged</span>
+                </div>
+              </details>
+            </div>
+          </article>
           <article class="project-card">
             <div class="project-copy">
               <p class="project-type">Automation agent</p>
@@ -265,34 +296,32 @@
       </div>
     </footer>
     <script>
-      const WEBHOOK_URL = "PASTE_N8N_WEBHOOK_URL_HERE";
       const contactForm = document.querySelector("#contact-form");
       const formStatus = document.querySelector("#form-status");
-      contactForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const submitButton = contactForm.querySelector("button[type=submit]");
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
-        formStatus.textContent = "";
-        formStatus.className = "form-status";
+      const CONTACT_EMAIL = "erwin.leonardia.job@gmail.com";
 
-        try {
-          const response = await fetch(WEBHOOK_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
-          });
-          if (!response.ok) throw new Error("Request failed");
-          formStatus.textContent = "Thanks — I'll get back to you within 24 hours.";
-          formStatus.classList.add("is-success");
-          contactForm.reset();
-        } catch (error) {
-          formStatus.textContent = "Something went wrong. Please try again or email me directly.";
-          formStatus.classList.add("is-error");
-        } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "Send message";
-        }
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const data = new FormData(contactForm);
+        const name = data.get("name");
+        const email = data.get("email");
+        const projectType = data.get("projectType");
+        const message = data.get("message");
+
+        const subject = `New inquiry: ${projectType} — from ${name}`;
+        const body =
+          `Name: ${name}\n` +
+          `Email: ${email}\n` +
+          `Project type: ${projectType}\n\n` +
+          `Message:\n${message}`;
+
+        const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;
+
+        formStatus.textContent = "Opening your email app — just hit send to reach me.";
+        formStatus.className = "form-status is-success";
       });
 
       const lazyVideos = document.querySelectorAll("video[data-video-src]");
