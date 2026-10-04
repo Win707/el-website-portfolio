@@ -1,44 +1,385 @@
-:root { --paper: #f4f1eb; --ink: #20211e; --muted: #777872; --line: #d9d8d1; --lime: #d7f26b; --purple: #7162e8; --white: #fffefa; }
-* { box-sizing: border-box; } html { scroll-behavior: smooth; } body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Manrope", sans-serif; line-height: 1.6; } a { color: inherit; text-decoration: none; } img { display: block; max-width: 100%; }
-.container { width: min(1160px, calc(100% - 3rem)); margin: 0 auto; } .section-spacing { padding: 7rem 0; } .eyebrow, .project-type, .label, .window-footer, .trust-inner, .footer-inner, .mini-kicker { font-family: "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; font-size: .7rem; } .eyebrow { margin: 0 0 1.2rem; color: var(--muted); }
-h1, h2, h3, p { margin-top: 0; } h1, h2, h3 { letter-spacing: -.065em; line-height: .98; } h1 { max-width: 730px; margin-bottom: 1.75rem; font-size: clamp(3.8rem, 8vw, 7.5rem); font-weight: 700; } h1 em, h2 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.09em; } h2 { margin-bottom: 1.2rem; font-size: clamp(3rem, 5vw, 5.3rem); } h3 { font-size: 1.5rem; } p { color: var(--muted); }
-.site-header { position: sticky; top: 0; z-index: 10; background: rgba(244,241,235,.9); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); } .nav { display: flex; min-height: 82px; align-items: center; justify-content: space-between; gap: 2rem; } .brand { display: flex; align-items: center; gap: .75rem; font-weight: 700; } .brand-mark { display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center; border: 1px solid var(--ink); border-radius: 50%; font: 500 .62rem "DM Mono", monospace; } .main-nav { display: flex; gap: 2.2rem; color: var(--muted); font-size: .9rem; } .main-nav a:hover, .footer-inner a:hover { color: var(--purple); }
-.button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: .7rem; padding: .8rem 1.2rem; border: 1px solid transparent; border-radius: 4px; font-size: .86rem; font-weight: 700; transition: transform .2s ease, background .2s ease; } .button:hover, .arrow-link:hover, .contact-link:hover { transform: translateY(-2px); } .button-primary { background: var(--ink); color: var(--paper); } .button-primary:hover { background: var(--purple); } .button-secondary { border-color: var(--line); }
-.hero { padding: 7.5rem 0 6.5rem; } .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 4rem; } .intro { max-width: 560px; margin-bottom: 0; font-size: 1.1rem; } .status-dot { display: inline-block; width: 7px; height: 7px; margin-right: .45rem; border-radius: 50%; background: #70a85f; } .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2.2rem 0 3.5rem; } .hero-meta { display: flex; gap: 2.5rem; padding: 0; margin: 0; list-style: none; } .hero-meta li { display: flex; flex-direction: column; gap: .15rem; } .hero-meta strong { font-size: 1rem; } .hero-meta span { color: var(--muted); font: .68rem "DM Mono", monospace; text-transform: uppercase; }
-.hero-visual { position: relative; min-height: 500px; display: flex; align-items: center; justify-content: center; } .code-window { width: min(470px, 100%); overflow: hidden; border: 1px solid #3b3d39; border-radius: 8px; background: #292b28; box-shadow: 18px 22px 0 var(--lime); transform: rotate(3deg); } .window-bar { display: flex; align-items: center; gap: .35rem; padding: .85rem 1rem; border-bottom: 1px solid #444640; color: #8e938a; font: .65rem "DM Mono", monospace; } .window-bar span { width: 7px; height: 7px; border-radius: 50%; background: #797c72; } .window-bar b { margin-left: auto; font-weight: 400; } .code-body { padding: 3rem 2rem 4rem; color: #d9ddd0; font: .86rem/2 "DM Mono", monospace; } .code-body p { margin: 0; color: inherit; } .code-body i { display: inline-block; width: 2rem; color: #63675f; font-style: normal; } .purple { color: #b6a9ff; } .green { color: #c1dd83; } .code-space { height: 1.7rem; } .cursor { display: inline-block; width: 7px; height: 1.1rem; margin-left: 3px; vertical-align: middle; background: var(--lime); } .window-footer { display: flex; justify-content: space-between; padding: .7rem 1rem; color: #a5a99d; border-top: 1px solid #444640; font-size: .6rem; } .window-footer span:last-child { color: var(--lime); }
-.floating-note { position: absolute; padding: .75rem .9rem; border: 1px solid var(--line); border-radius: 4px; background: var(--white); box-shadow: 8px 8px 0 rgba(32,33,30,.08); } .floating-note .label { display: block; margin-bottom: .25rem; color: var(--muted); font-size: .6rem; } .floating-note strong { font-size: .8rem; } .note-top { top: 5%; left: -2%; } .note-bottom { right: -3%; bottom: 8%; } .floating-note strong span { color: var(--purple); }
-.trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); } .trust-inner { display: flex; min-height: 74px; align-items: center; justify-content: space-between; gap: 1rem; color: var(--muted); } .trust-inner strong { color: var(--ink); font: 500 .78rem "Manrope", sans-serif; text-transform: none; letter-spacing: 0; }
-.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 3.5rem; } .section-heading h2 { margin-bottom: 0; } .section-heading > p:last-child { max-width: 230px; margin-bottom: .3rem; } .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem 1.5rem; } .project-card { min-width: 0; } .project-featured { grid-column: span 2; } .project-visual { position: relative; min-height: 380px; overflow: hidden; border-radius: 3px; } .atlas { background: #d8d8ff; } .atlas-top { display: flex; justify-content: space-between; padding: 1.1rem 1.25rem; background: #f5f3ff; font-size: .75rem; font-weight: 700; } .atlas-content { padding: 6rem 10%; } .mini-kicker { color: #6d6f8f; } .atlas-content strong { display: block; margin-top: 1rem; color: #323268; font-size: clamp(2.8rem, 6vw, 5.2rem); letter-spacing: -.08em; line-height: .9; } .atlas-line { width: 44%; height: 10px; margin-top: 2.5rem; background: #9b9bea; } .parcel { display: flex; align-items: center; justify-content: space-between; padding: 10%; background: #e8d8c5; } .parcel-label { color: #274b44; font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; line-height: .9; letter-spacing: -.1em; } .parcel-label small { display: block; margin-top: 1rem; font: .65rem "DM Mono", monospace; letter-spacing: .04em; text-transform: uppercase; } .parcel-stamp { width: 92px; height: 92px; display: grid; place-content: center; border: 1px solid #274b44; border-radius: 50%; color: #274b44; text-align: center; font: 1.6rem "DM Mono", monospace; transform: rotate(12deg); } .parcel-stamp small { font-size: .58rem; } .fieldnotes { padding: 2rem; background: #262927; color: #e3e9da; } .fieldnotes-mark { display: block; font-size: 3.3rem; font-weight: 700; line-height: .82; letter-spacing: -.1em; } .fieldnotes-scribble { position: absolute; top: 43%; right: 14%; color: var(--lime); font-size: 4rem; transform: rotate(-25deg); } .fieldnotes-tag { position: absolute; right: 2rem; bottom: 2rem; color: #aab1a2; font: .68rem/1.5 "DM Mono", monospace; text-align: right; text-transform: uppercase; } .project-info { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.3rem; } .project-info h3 { margin-bottom: .35rem; } .project-info p { max-width: 420px; margin-bottom: 0; } .project-type { margin-bottom: .5rem; color: var(--muted); font-size: .62rem; } .arrow-link { display: grid; flex: 0 0 auto; width: 38px; height: 38px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--purple); transition: transform .2s ease; }
-.approach { background: var(--ink); color: var(--paper); } .approach-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 7rem; } .approach .eyebrow, .approach p { color: #a7aaa2; } .approach h2 { color: var(--paper); } .approach-list > div { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid #474943; } .approach-list > div:last-child { border-bottom: 1px solid #474943; } .approach-list > div > span { color: var(--lime); font: .68rem "DM Mono", monospace; } .approach h3 { margin-bottom: .55rem; font-size: 1.25rem; } .approach-list p { max-width: 500px; margin-bottom: 0; }
-.contact { text-align: center; } .contact-inner { max-width: 760px; } .contact h2 { margin-bottom: 2.5rem; } .contact-form { display: grid; gap: 1.2rem; max-width: 620px; margin: 0 auto 2rem; text-align: left; } .form-field { display: grid; gap: .45rem; } .form-field label { font: .7rem "DM Mono", monospace; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; } .form-field input, .form-field select, .form-field textarea { width: 100%; padding: .85rem 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); font: inherit; outline: 0; } .form-field textarea { resize: vertical; } .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--purple); box-shadow: 0 1px 0 var(--purple); } .contact-form .button { justify-self: start; cursor: pointer; } .contact-form .button:disabled { cursor: wait; opacity: .6; } .form-status { min-height: 1.6em; margin: 0; font-size: .88rem; } .form-status.is-success { color: #507d48; } .form-status.is-error { color: #a34e45; } .contact-link { display: inline-flex; align-items: center; gap: .5rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .85rem; transition: transform .2s ease, color .2s ease; } .contact-link:hover { color: var(--ink); } .contact-link span { color: var(--purple); } .site-footer { padding: 1.5rem 0; border-top: 1px solid var(--line); } .footer-inner { display: flex; justify-content: space-between; color: var(--muted); font-size: .65rem; } .footer-inner div { display: flex; gap: 1.5rem; } .footer-inner a { transition: color .2s ease; }
-@media (max-width: 850px) { .hero-grid, .approach-grid { grid-template-columns: 1fr; gap: 3rem; } .hero { padding-top: 5rem; } .hero-visual { max-width: 600px; min-height: 440px; } .trust-inner strong:nth-of-type(n+3) { display: none; } .approach-grid { gap: 3rem; } .section-heading { display: block; } .section-heading > p:last-child { margin-top: 1rem; } }
-@media (max-width: 600px) { .container { width: min(100% - 2rem, 1160px); } .main-nav { display: none; } .nav { min-height: 70px; } .nav > .button { min-height: 40px; padding: .6rem .8rem; font-size: .72rem; } .hero { padding: 4rem 0 5rem; } .hero h1 { font-size: clamp(3.4rem, 16vw, 5.5rem); } .hero-actions { flex-direction: column; } .hero-actions .button { width: 100%; } .hero-meta { flex-wrap: wrap; gap: 1.3rem; } .hero-visual { min-height: 360px; } .code-window { box-shadow: 10px 12px 0 var(--lime); } .code-body { padding: 2rem 1rem 3rem; font-size: .7rem; } .window-bar { padding: .7rem; } .note-top { top: 0; left: 0; } .note-bottom { right: 0; bottom: 0; } .trust-inner { flex-wrap: wrap; padding: 1.1rem 0; } .trust-inner > span { width: 100%; } .project-grid { grid-template-columns: 1fr; gap: 2.5rem; } .project-featured { grid-column: auto; } .project-visual { min-height: 280px; } .atlas-content { padding: 4rem 8%; } .parcel-label { font-size: 2.5rem; } .parcel-stamp { width: 70px; height: 70px; font-size: 1.1rem; } .section-spacing { padding: 5rem 0; } .footer-inner { display: block; } .footer-inner div { margin-top: 1rem; flex-wrap: wrap; gap: .9rem; } }
+/* =====================================================
+   1. COLORS (change the whole site's colors from here)
+   ===================================================== */
+:root {
+  --paper: #f4f1eb;   /* page background (warm off-white) */
+  --ink: #20211e;     /* main text and dark buttons */
+  --muted: #777872;   /* softer gray text */
+  --line: #d9d8d1;    /* thin border lines */
+  --lime: #d7f26b;    /* bright accent (code window shadow, cursor) */
+  --purple: #7162e8;  /* accent for hovers, links, and arrows */
+  --white: #fffefa;   /* card backgrounds */
+}
+/* Use a color anywhere like this: color: var(--purple); */
+
+
+/* =====================================================
+   2. BASE RULES (apply to the whole page)
+   ===================================================== */
+* { box-sizing: border-box; }   /* padding and borders stay inside an element's width */
+html { scroll-behavior: smooth; } /* anchor links (#work, #contact) scroll smoothly */
+body {
+  margin: 0;                    /* remove the browser's default outer margin */
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;  /* main font (from Google Fonts) */
+  line-height: 1.6;             /* space between lines of text */
+}
+a { color: inherit; text-decoration: none; }  /* links look like normal text, no underline */
+img { display: block; max-width: 100%; }      /* images never overflow their container */
+
+
+/* =====================================================
+   3. LAYOUT HELPERS AND TEXT STYLES
+   ===================================================== */
+/* Centers content and keeps it from getting too wide */
+.container { width: min(1160px, calc(100% - 3rem)); margin: 0 auto; }
+
+/* Standard top and bottom space for each big section */
+.section-spacing { padding: 7rem 0; }
+
+/* Small uppercase labels used in many places (monospace font) */
+.eyebrow, .project-type, .label, .window-footer, .trust-inner, .footer-inner, .mini-kicker {
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .7rem;
+}
+.eyebrow { margin: 0 0 1.2rem; color: var(--muted); }  /* the small label above headings */
+
+/* Headings and paragraphs */
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { letter-spacing: -.065em; line-height: .98; }  /* tight, bold look */
+h1 {
+  max-width: 730px;
+  margin-bottom: 1.75rem;
+  font-size: clamp(3.8rem, 8vw, 7.5rem);  /* clamp(min, flexible, max): grows with screen size */
+  font-weight: 700;
+}
+h1 em, h2 em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.09em; } /* the italic serif words */
+h2 { margin-bottom: 1.2rem; font-size: clamp(3rem, 5vw, 5.3rem); }
+h3 { font-size: 1.5rem; }
+p { color: var(--muted); }
+
+
+/* =====================================================
+   4. HEADER AND NAVIGATION (top bar)
+   ===================================================== */
+.site-header {
+  position: sticky; top: 0; z-index: 10;   /* stays at the top while scrolling */
+  background: rgba(244,241,235,.9);        /* slightly see-through background */
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);             /* blurs what's behind the header */
+}
+.nav { display: flex; min-height: 82px; align-items: center; justify-content: space-between; gap: 2rem; }
+.brand { display: flex; align-items: center; gap: .75rem; font-weight: 700; }
+.brand-mark {                              /* the round "EL" logo */
+  display: inline-flex; width: 34px; height: 34px;
+  align-items: center; justify-content: center;
+  border: 1px solid var(--ink); border-radius: 50%;
+  font: 500 .62rem "DM Mono", monospace;
+}
+.main-nav { display: flex; gap: 2.2rem; color: var(--muted); font-size: .9rem; }
+.main-nav a:hover, .footer-inner a:hover { color: var(--purple); }  /* link turns purple on hover */
+
+
+/* =====================================================
+   5. BUTTONS
+   ===================================================== */
+.button {
+  display: inline-flex; min-height: 48px;
+  align-items: center; justify-content: center; gap: .7rem;
+  padding: .8rem 1.2rem;
+  border: 1px solid transparent; border-radius: 4px;
+  font-size: .86rem; font-weight: 700;
+  transition: transform .2s ease, background .2s ease;  /* smooth hover animation */
+}
+/* On hover, buttons and links lift up slightly */
+.button:hover, .arrow-link:hover, .contact-link:hover { transform: translateY(-2px); }
+.button-primary { background: var(--ink); color: var(--paper); }  /* dark filled button */
+.button-primary:hover { background: var(--purple); }
+.button-secondary { border-color: var(--line); }                  /* outlined button */
+
+
+/* =====================================================
+   6. HERO (the first big section)
+   ===================================================== */
+.hero { padding: 7.5rem 0 6.5rem; }
+.hero-grid {                               /* two columns: text left, code window right */
+  display: grid; grid-template-columns: 1.12fr .88fr;
+  align-items: center; gap: 4rem;
+}
+.intro { max-width: 560px; margin-bottom: 0; font-size: 1.1rem; }
+.status-dot {                              /* the small green dot beside "Learning in public" */
+  display: inline-block; width: 7px; height: 7px;
+  margin-right: .45rem; border-radius: 50%; background: #70a85f;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin: 2.2rem 0 3.5rem; }
+.hero-meta { display: flex; gap: 2.5rem; padding: 0; margin: 0; list-style: none; }  /* Beginner / In progress / Bukidnon */
+.hero-meta li { display: flex; flex-direction: column; gap: .15rem; }
+.hero-meta strong { font-size: 1rem; }
+.hero-meta span { color: var(--muted); font: .68rem "DM Mono", monospace; text-transform: uppercase; }
+
+
+/* =====================================================
+   7. HERO VISUAL (code window and floating notes)
+   ===================================================== */
+.hero-visual { position: relative; min-height: 500px; display: flex; align-items: center; justify-content: center; }
+.code-window {
+  width: min(470px, 100%); overflow: hidden;
+  border: 1px solid #3b3d39; border-radius: 8px;
+  background: #292b28;
+  box-shadow: 18px 22px 0 var(--lime);     /* the lime offset shadow */
+  transform: rotate(3deg);                 /* slight tilt */
+}
+.window-bar {                              /* top bar with three dots and the site name */
+  display: flex; align-items: center; gap: .35rem;
+  padding: .85rem 1rem; border-bottom: 1px solid #444640;
+  color: #8e938a; font: .65rem "DM Mono", monospace;
+}
+.window-bar span { width: 7px; height: 7px; border-radius: 50%; background: #797c72; }  /* the dots */
+.window-bar b { margin-left: auto; font-weight: 400; }   /* pushes the name to the right */
+.code-body { padding: 3rem 2rem 4rem; color: #d9ddd0; font: .86rem/2 "DM Mono", monospace; }
+.code-body p { margin: 0; color: inherit; }
+.code-body i { display: inline-block; width: 2rem; color: #63675f; font-style: normal; }  /* line numbers */
+.purple { color: #b6a9ff; }                /* purple code words */
+.green { color: #c1dd83; }                 /* green code words */
+.code-space { height: 1.7rem; }
+.cursor { display: inline-block; width: 7px; height: 1.1rem; margin-left: 3px; vertical-align: middle; background: var(--lime); }  /* blinking-style cursor block */
+.window-footer { display: flex; justify-content: space-between; padding: .7rem 1rem; color: #a5a99d; border-top: 1px solid #444640; font-size: .6rem; }
+.window-footer span:last-child { color: var(--lime); }
+
+/* Small white cards floating around the code window */
+.floating-note {
+  position: absolute; padding: .75rem .9rem;
+  border: 1px solid var(--line); border-radius: 4px;
+  background: var(--white); box-shadow: 8px 8px 0 rgba(32,33,30,.08);
+}
+.floating-note .label { display: block; margin-bottom: .25rem; color: var(--muted); font-size: .6rem; }
+.floating-note strong { font-size: .8rem; }
+.note-top { top: 5%; left: -2%; }          /* position of the top card */
+.note-bottom { right: -3%; bottom: 8%; }   /* position of the bottom card */
+.floating-note strong span { color: var(--purple); }
+
+
+/* =====================================================
+   8. TRUST STRIP (the "Current focus" bar)
+   ===================================================== */
+.trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.trust-inner { display: flex; min-height: 74px; align-items: center; justify-content: space-between; gap: 1rem; color: var(--muted); }
+.trust-inner strong { color: var(--ink); font: 500 .78rem "Manrope", sans-serif; text-transform: none; letter-spacing: 0; }
+
+
+/* =====================================================
+   9. PROJECTS SECTION (heading and grid)
+   ===================================================== */
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 3.5rem; }
+.section-heading h2 { margin-bottom: 0; }
+.section-heading > p:last-child { max-width: 230px; margin-bottom: .3rem; }  /* the short text on the right */
+
+/* Two projects per row on desktop, with space between them */
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3.5rem 1.5rem; }
+.project-card { min-width: 0; }
+
+/* ---- LEFTOVER STYLES FROM AN OLDER DESIGN ----
+   These classes (project-featured, project-visual, atlas, parcel,
+   fieldnotes, project-info, arrow-link) are not used in your current
+   HTML. They do nothing right now. You can delete them later. */
+.project-featured { grid-column: span 2; }
+.project-visual { position: relative; min-height: 380px; overflow: hidden; border-radius: 3px; }
+.atlas { background: #d8d8ff; }
+.atlas-top { display: flex; justify-content: space-between; padding: 1.1rem 1.25rem; background: #f5f3ff; font-size: .75rem; font-weight: 700; }
+.atlas-content { padding: 6rem 10%; }
+.mini-kicker { color: #6d6f8f; }
+.atlas-content strong { display: block; margin-top: 1rem; color: #323268; font-size: clamp(2.8rem, 6vw, 5.2rem); letter-spacing: -.08em; line-height: .9; }
+.atlas-line { width: 44%; height: 10px; margin-top: 2.5rem; background: #9b9bea; }
+.parcel { display: flex; align-items: center; justify-content: space-between; padding: 10%; background: #e8d8c5; }
+.parcel-label { color: #274b44; font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; line-height: .9; letter-spacing: -.1em; }
+.parcel-label small { display: block; margin-top: 1rem; font: .65rem "DM Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
+.parcel-stamp { width: 92px; height: 92px; display: grid; place-content: center; border: 1px solid #274b44; border-radius: 50%; color: #274b44; text-align: center; font: 1.6rem "DM Mono", monospace; transform: rotate(12deg); }
+.parcel-stamp small { font-size: .58rem; }
+.fieldnotes { padding: 2rem; background: #262927; color: #e3e9da; }
+.fieldnotes-mark { display: block; font-size: 3.3rem; font-weight: 700; line-height: .82; letter-spacing: -.1em; }
+.fieldnotes-scribble { position: absolute; top: 43%; right: 14%; color: var(--lime); font-size: 4rem; transform: rotate(-25deg); }
+.fieldnotes-tag { position: absolute; right: 2rem; bottom: 2rem; color: #aab1a2; font: .68rem/1.5 "DM Mono", monospace; text-align: right; text-transform: uppercase; }
+.project-info { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1.3rem; }
+.project-info h3 { margin-bottom: .35rem; }
+.project-info p { max-width: 420px; margin-bottom: 0; }
+.project-type { margin-bottom: .5rem; color: var(--muted); font-size: .62rem; }  /* small label above a project title */
+.arrow-link { display: grid; flex: 0 0 auto; width: 38px; height: 38px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--purple); transition: transform .2s ease; }
+
+
+/* =====================================================
+   10. APPROACH SECTION (dark section, "How I'm learning")
+   ===================================================== */
+.approach { background: var(--ink); color: var(--paper); }   /* dark background, light text */
+.approach-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 7rem; }  /* heading left, list right */
+.approach .eyebrow, .approach p { color: #a7aaa2; }
+.approach h2 { color: var(--paper); }
+.approach-list > div { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.4rem 0; border-top: 1px solid #474943; }  /* each numbered row */
+.approach-list > div:last-child { border-bottom: 1px solid #474943; }
+.approach-list > div > span { color: var(--lime); font: .68rem "DM Mono", monospace; }  /* the 01, 02, 03 numbers */
+.approach h3 { margin-bottom: .55rem; font-size: 1.25rem; }
+.approach-list p { max-width: 500px; margin-bottom: 0; }
+
+
+/* =====================================================
+   11. CONTACT SECTION (form)
+   ===================================================== */
+.contact { text-align: center; }
+.contact-inner { max-width: 760px; }
+.contact h2 { margin-bottom: 2.5rem; }
+.contact-form { display: grid; gap: 1.2rem; max-width: 620px; margin: 0 auto 2rem; text-align: left; }
+.form-field { display: grid; gap: .45rem; }
+.form-field label { font: .7rem "DM Mono", monospace; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+/* Inputs look like a simple line, with no box */
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%; padding: .85rem 0;
+  border: 0; border-bottom: 1px solid var(--line); border-radius: 0;
+  background: transparent; color: var(--ink);
+  font: inherit; outline: 0;
+}
+.form-field textarea { resize: vertical; }   /* user can only resize up and down */
+/* When a field is clicked, its line turns purple */
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--purple); box-shadow: 0 1px 0 var(--purple); }
+.contact-form .button { justify-self: start; cursor: pointer; }
+.contact-form .button:disabled { cursor: wait; opacity: .6; }
+.form-status { min-height: 1.6em; margin: 0; font-size: .88rem; }  /* message under the form */
+.form-status.is-success { color: #507d48; }  /* green when sent */
+.form-status.is-error { color: #a34e45; }    /* red when failed */
+.contact-link { display: inline-flex; align-items: center; gap: .5rem; padding-bottom: .35rem; border-bottom: 1px solid var(--line); color: var(--muted); font-size: .85rem; transition: transform .2s ease, color .2s ease; }
+.contact-link:hover { color: var(--ink); }
+.contact-link span { color: var(--purple); }
+
+
+/* =====================================================
+   12. FOOTER
+   ===================================================== */
+.site-footer { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.footer-inner { display: flex; justify-content: space-between; color: var(--muted); font-size: .65rem; }
+.footer-inner div { display: flex; gap: 1.5rem; }
+.footer-inner a { transition: color .2s ease; }
+
+
+/* =====================================================
+   13. RESPONSIVE: TABLETS (screens 850px wide or smaller)
+   ===================================================== */
+@media (max-width: 850px) {
+  .hero-grid, .approach-grid { grid-template-columns: 1fr; gap: 3rem; }  /* two columns become one */
+  .hero { padding-top: 5rem; }
+  .hero-visual { max-width: 600px; min-height: 440px; }
+  .trust-inner strong:nth-of-type(n+3) { display: none; }   /* hide the 3rd and 4th focus items */
+  .approach-grid { gap: 3rem; }
+  .section-heading { display: block; }
+  .section-heading > p:last-child { margin-top: 1rem; }
+}
+
+
+/* =====================================================
+   14. RESPONSIVE: PHONES (screens 600px wide or smaller)
+   ===================================================== */
+@media (max-width: 600px) {
+  .container { width: min(100% - 2rem, 1160px); }
+  .main-nav { display: none; }                 /* hide menu links on phones */
+  .nav { min-height: 70px; }
+  .nav > .button { min-height: 40px; padding: .6rem .8rem; font-size: .72rem; }
+  .hero { padding: 4rem 0 5rem; }
+  .hero h1 { font-size: clamp(3.4rem, 16vw, 5.5rem); }
+  .hero-actions { flex-direction: column; }    /* stack buttons vertically */
+  .hero-actions .button { width: 100%; }
+  .hero-meta { flex-wrap: wrap; gap: 1.3rem; }
+  .hero-visual { min-height: 360px; }
+  .code-window { box-shadow: 10px 12px 0 var(--lime); }
+  .code-body { padding: 2rem 1rem 3rem; font-size: .7rem; }
+  .window-bar { padding: .7rem; }
+  .note-top { top: 0; left: 0; }
+  .note-bottom { right: 0; bottom: 0; }
+  .trust-inner { flex-wrap: wrap; padding: 1.1rem 0; }
+  .trust-inner > span { width: 100%; }
+  .project-grid { grid-template-columns: 1fr; gap: 2.5rem; }   /* one project per row */
+  .project-featured { grid-column: auto; }
+  .project-visual { min-height: 280px; }
+  .atlas-content { padding: 4rem 8%; }
+  .parcel-label { font-size: 2.5rem; }
+  .parcel-stamp { width: 70px; height: 70px; font-size: 1.1rem; }
+  .section-spacing { padding: 5rem 0; }
+  .footer-inner { display: block; }
+  .footer-inner div { margin-top: 1rem; flex-wrap: wrap; gap: .9rem; }
+}
+
+
+/* =====================================================
+   15. LEARNING GRID (leftover, not used in your current HTML)
+   ===================================================== */
 .learning-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
 .learning-item { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.8rem 1.5rem 1.8rem 0; border-bottom: 1px solid var(--line); }
 .learning-item + .learning-item { padding-left: 1.5rem; border-left: 1px solid var(--line); }
 .learning-item > span { color: var(--purple); font: .7rem "DM Mono", monospace; }
 .learning-item h3 { margin-bottom: .6rem; font-size: 1.25rem; }
 .learning-item p { margin-bottom: 0; font-size: .92rem; }
-@media (max-width: 850px) { .learning-grid { grid-template-columns: 1fr; } .learning-item + .learning-item { padding-left: 0; border-left: 0; } }
-.project-card { display: flex; flex-direction: column; }
-.project-copy { padding-bottom: 1.4rem; }
+@media (max-width: 850px) {
+  .learning-grid { grid-template-columns: 1fr; }
+  .learning-item + .learning-item { padding-left: 0; border-left: 0; }
+}
+
+
+/* =====================================================
+   16. PROJECT CARDS (this is what your portfolio cards use)
+   ===================================================== */
+.project-card { display: flex; flex-direction: column; }   /* stack the parts of a card vertically */
+.project-copy { padding-bottom: 1.4rem; }                  /* the title and description area */
 .project-copy h3 { margin-bottom: .6rem; font-size: clamp(1.8rem, 3vw, 2.6rem); }
 .project-copy .project-type { margin-bottom: .65rem; }
 .project-result { margin-bottom: 0; max-width: 580px; }
+
+/* The media box (holds the video or screenshot) */
 .project-media { position: relative; min-height: 360px; overflow: hidden; border-radius: 3px; background: var(--ink); }
 .project-featured .project-media { min-height: 440px; }
-.project-media video { display: block; width: 100%; height: 100%; min-height: inherit; object-fit: cover; }
-.media-status { position: absolute; right: 1rem; bottom: 1rem; padding: .5rem .7rem; border: 1px solid rgba(244,241,235,.3); border-radius: 999px; background: rgba(32,33,30,.78); color: var(--paper); font: .62rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
-.project-media.is-ready .media-status { display: none; }
+.project-media video { display: block; width: 100%; height: 100%; min-height: inherit; object-fit: cover; }  /* video fills the box */
+
+/* The "Demo video coming soon" badge in the corner */
+.media-status {
+  position: absolute; right: 1rem; bottom: 1rem;
+  padding: .5rem .7rem;
+  border: 1px solid rgba(244,241,235,.3); border-radius: 999px;
+  background: rgba(32,33,30,.78); color: var(--paper);
+  font: .62rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .06em;
+}
+.project-media.is-ready .media-status { display: none; }   /* hide the badge once the video loads */
+
+/* Tech tags (HTML, CSS, JavaScript...) */
 .project-details { padding-top: 1rem; }
 .tech-tags { display: flex; flex-wrap: wrap; gap: .45rem; }
 .tech-tags span { padding: .35rem .65rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: .64rem "DM Mono", monospace; text-transform: uppercase; }
+
+/* "How it works" dropdown */
 .project-details details { margin-top: 1rem; border-top: 1px solid var(--line); }
 .project-details summary { padding: .85rem 0; cursor: pointer; list-style: none; font-size: .82rem; font-weight: 700; }
-.project-details summary::-webkit-details-marker { display: none; }
-.project-details summary::after { content: "+"; float: right; color: var(--purple); font-size: 1.1rem; font-weight: 400; }
-.project-details details[open] summary::after { content: "−"; }
+.project-details summary::-webkit-details-marker { display: none; }                 /* hide the default arrow in Safari */
+.project-details summary::after { content: "+"; float: right; color: var(--purple); font-size: 1.1rem; font-weight: 400; }  /* shows + when closed */
+.project-details details[open] summary::after { content: "−"; }                     /* shows − when open */
+
+/* The flow boxes: Step → Step → Step */
 .flow-diagram { display: flex; align-items: center; gap: .55rem; padding: 0 0 1rem; }
 .flow-diagram span { padding: .55rem .7rem; border: 1px solid var(--line); border-radius: 3px; background: var(--white); font: .64rem "DM Mono", monospace; text-align: center; }
-.flow-diagram b { color: var(--purple); font-weight: 400; }
-@media (max-width: 600px) { .project-media, .project-featured .project-media { min-height: 250px; } .flow-diagram { align-items: stretch; flex-direction: column; } .flow-diagram b { text-align: center; transform: rotate(90deg); } }
+.flow-diagram b { color: var(--purple); font-weight: 400; }   /* the arrows */
+
+@media (max-width: 600px) {
+  .project-media, .project-featured .project-media { min-height: 250px; }   /* shorter media on phones */
+  .flow-diagram { align-items: stretch; flex-direction: column; }           /* flow steps stack vertically */
+  .flow-diagram b { text-align: center; transform: rotate(90deg); }         /* arrows point down */
+}
+
+
+/* =====================================================
+   17. LOKAL KOFI CARD (screenshot image and project links)
+   ===================================================== */
+.project-media a { display: block; min-height: inherit; }     /* makes the whole image clickable */
+.project-media img {
+  width: 100%; height: 100%; min-height: inherit;
+  object-fit: cover;          /* fills the box without stretching the image */
+  object-position: top;       /* shows the top of the screenshot (the hero) */
+}
+.project-links { margin: 1rem 0 0; font-size: .85rem; font-weight: 700; }   /* the "Live demo" row */
+.project-links a { color: var(--purple); }
+.project-links a:hover { text-decoration: underline; }
