@@ -213,7 +213,7 @@ p { color: var(--muted); }
 /* =====================================================
    10. APPROACH SECTION (dark section, "How I'm learning")
    ===================================================== */
-.approach { background: var(--ink); color: var(--paper); }   /* dark background, light text */
+.approach { scroll-margin-top: 82px; border-top: 1px solid var(--line); background: var(--ink); color: var(--paper); }   /* dark background, light text */
 .approach-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 7rem; }  /* heading left, list right */
 .approach .eyebrow, .approach p { color: #a7aaa2; }
 .approach h2 { color: var(--paper); }
